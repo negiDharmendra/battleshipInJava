@@ -1,3 +1,4 @@
+package lib;
 
 public class Ship {
     private final String name;

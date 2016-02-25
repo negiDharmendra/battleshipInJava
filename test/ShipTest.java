@@ -1,3 +1,4 @@
+import lib.Ship;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,10 +40,6 @@ public class ShipTest {
     @Test
     public void testDeployAtPositionsShouldThrowExceptionWhenSomeOneTrayToDeployAgain(){
         String [] expected = {"A1","A2","A3","A4","A5"};
-        try {
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         try {
             carrier.deployAtPositions(expected);
         } catch (Exception e) {
