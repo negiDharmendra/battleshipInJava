@@ -12,10 +12,30 @@ public class Ship {
     }
 
     public boolean isAlive() {
-        return 0 == this.vanishedLives;
+        return lives > vanishedLives;
     }
 
     public String[] getPositions() {
         return this.positions;
+    }
+    public void deployAtPositions(String[] positions) throws Exception {
+        if(isDeployed())
+           throw new Exception( "Can not deploy again" );
+        this.positions = positions;
+    }
+
+    private boolean isDeployed() {
+        for (String position:positions)
+            if(position==null) return false;
+        return true;
+    }
+
+    public boolean gotHitAt(String shoot) {
+        for (String position :positions)
+            if(position.equals(shoot)){
+                vanishedLives++;
+                return true;
+            }
+        return false;
     }
 }
